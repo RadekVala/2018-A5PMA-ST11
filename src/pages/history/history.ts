@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HistoryProvider } from '../../providers/history/history';
+import { HistoryRecord } from '../../models/history-record';
 
 /**
  * Generated class for the HistoryPage page.
@@ -16,6 +17,8 @@ import { HistoryProvider } from '../../providers/history/history';
 })
 export class HistoryPage {
 
+  private historyRecords: Array<HistoryRecord>;
+
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
@@ -25,6 +28,8 @@ export class HistoryPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad HistoryPage');
+
+    this.historyRecords = this.historyProvider.historyRecords;
   }
 
 }
